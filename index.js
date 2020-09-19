@@ -88,10 +88,7 @@ function generateMd(answer) {
   ## Questions
   If you have any questions, contact ${answer.username} on GitHub.`
   }
-// fs.writeFile('README.md', generateMarkdown, function (err) {
-//     if (err) throw err;
-//     console.log('File is created successfully.');
-//   });
+
 promptUser()
 .then(function(answer) {
     const md = generateMd(answer);
