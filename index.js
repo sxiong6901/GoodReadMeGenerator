@@ -1,46 +1,24 @@
-
 const inquirer = require("inquirer");
-const axios = require("axios");
+const util = require("util");
 const fs = require('fs');
 const api = require('./utils/api.js')
-const generateMarkdown = require('./utils/generateMarkdown.js')
-
-async function main(){
-    console.log(`starting`);
-    const userResponse = await inquirer
-    .prompt([
+const writeReadme = util.promisify(fs.writeFile);
+async function promptUser(){
+    return inquirer.prompt([
         {
             type: "input",
-            message: "What is your GitHub user name?",
             name: "username",
-            validate: function (answer) {
-                if (answer.length < 1) {
-                    return console.log("Please enter Github username (Note: You do not have to add '@'.");
-                }
-                return true;
-            }
+            message: "What is your GitHub user name?"
         },
         {
             type: "input",
-            message: "What is your Project Title?",
             name: "title",
-            validate: function (answer) {
-                if (answer.length < 1) {
-                    return console.log("Please enter A Project Title.");
-                }
-                return true;
-            }
+            message: "What is your Project Title?"
         },
         {
             type: "input",
             message: "Provide detail description",
-            name: "desc",
-            validate: function (answer) {
-                if (answer.length < 1) {
-                    return console.log("Enter A Detail Description");
-                }
-                return true;
-            }
+            name: "desc"
         },
         {
             type: "input",
@@ -72,14 +50,72 @@ async function main(){
             type: "input",
             message: "Provide examples on how to run tests.",
             name: "test"
-        }
-]);
+        },
+    ]);
+    }
+function generateMd(answer) {
+    return `
+  # Project Title : ${answer.title}
+  ## Project Description:
+  ${answer.desc}
+  ## Table of Contents
+  * [Title](#Title)
+  * [Description](#Description)
+  * [Table of Contents](#Table of Contents)
+  * [Installation](#Installation)
+  * [Usage](#Usage)
+  * [License](#license)
+  * [Contributors] (#Contributors)
+  * [Tests](#)
+  * [Questions](#)
+  ## Installation
+  ${answer.install}
+  ## Usage
+  ${answer.usage}
+  ## License
+  ${answer.licenseName} - URL ${answer.licenseUrl}
+  ## Contributors
+  ${answer.contributors}
+  ## Test
+  ${answer.test}
+  ## Questions
+  If you have any questions, contact ${answer.username} on GitHub.
 
-fs.writeFile('README.md', 'Good ReadMe Generator', function (err) {
-    if (err) throw err;
-    console.log('File is created successfully.');
+
+  ## License
+  MIT License
+  Copyright (c) [2020] [Soua Xiong]
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+  ## Author 
+  ![GitHub profile pic](${answer.image})
+  `
+  }
+// fs.writeFile('README.md', generateMarkdown, function (err) {
+//     if (err) throw err;
+//     console.log('File is created successfully.');
+//   });
+promptUser()
+.then(function(answer) {
+    const md = generateMd(answer);
+    return writeReadme("README.md", md);
+  })
+  .then(function() {
+    console.log("Successfully wrote to README.md");
+  })
+  .catch(function(err) {
+    console.log(err);
   });
-
-
-}
-main()
