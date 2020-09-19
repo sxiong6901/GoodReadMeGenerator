@@ -1,10 +1,10 @@
-function generateMarkdown(data) {
+function generateMarkdown(answer) {
   return `
 
-  # Project Title : ${data.title}
+  # Project Title : ${answer.title}
 
 ## Project Description:
-${data.desc}
+${answer.desc}
 
 ## Table of Contents
 * [Title](#Title)
@@ -18,22 +18,22 @@ ${data.desc}
 * [Questions](#)
 
 ## Installation
-${data.install}
+${answer.install}
 
 ## Usage
-${data.usage}
+${answer.usage}
 
 ## License
-${data.licenseName} - URL ${data.licenseUrl}
+${answer.licenseName} - URL ${answer.licenseUrl}
 
 ## Contributors
-${data.contributors}
+${answer.contributors}
 
 ## Test
-${data.test}
+${answer.test}
 
 ## Questions
-If you have any questions, contact ${data.username} on GitHub.
+If you have any questions, contact ${answer.username} on GitHub.
 ## License
 MIT License
 Copyright (c) [year] [fullname]
@@ -53,9 +53,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ## Author 
-![GitHub profile pic](${data.image})
+![GitHub profile pic](${answer.image})
 
 `;
 }
 
 module.exports = generateMarkdown;
+
