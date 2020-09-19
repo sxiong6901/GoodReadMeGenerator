@@ -57,10 +57,11 @@ async function promptUser(){
     }
 function generateMd(answer) {
     return `
-  # Project Title : ${answer.title}
-  ## Project Description:
+  # Title : ${answer.title}
+  ## Description:
   ${answer.desc}
   ## Table of Contents
+  * [Title](#Title)
   * [Description](#Description)
   * [Installation](#Installation)
   * [Usage](#Usage)
@@ -71,14 +72,19 @@ function generateMd(answer) {
   
   ## Installation
   ${answer.install}
+
   ## Usage
   ${answer.usage}
+
   ## License
   ${answer.licenseName} - URL ${answer.licenseUrl}
+  
   ## Contributors
-  ${answer.contributors}
+  https://github.com/+ ${answer.contributors}
+  
   ## Test
   ${answer.test}
+  
   ## Questions
   If you have any questions, contact ${answer.username} on GitHub.`
   }
