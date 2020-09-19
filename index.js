@@ -1,14 +1,12 @@
-  
-// External packages
-const inquirer = require('inquirer');
-const fs = require('fs');
-const util = require('util');
 
-// Internal modules
-const api = require('./utils/api.js');
-const generateMarkdown = require('./utils/generateMarkdown.js');
-    
-inquirer
+const inquirer = require("inquirer");
+const axios = require("axios");
+const fs = require('fs');
+const path = require('path');
+
+async function main(){
+    console.log(`starting`);
+    const userResponse = await inquirer
     .prompt([
         {
             type: "input",
@@ -74,25 +72,14 @@ inquirer
             message: "Provide examples on how to run tests.",
             name: "test"
         }
-        ]);
+]);
 
-        function init() {
-            inquirer.prompt(questions).then(answers => {
-              console.log(answers);
-              axios
-                .get("https://api.github.com/users/" + answers.username)
-                .then(response => {
-                  console.log(response);
-                  var imageURL = response.data.avatar_url;
-                  answers.image = imageURL;
-                  console.log(imageURL);
-                  fs.writeFile("README.md", generateMarkdown(answers), function(err) {
-                    if (err) {
-                      throw err;
-                    }
-                  });
-                });
-            });
-          }
-          
-          init();
+
+fs.writeFile("README.md", generateMarkdown, function(err) {
+  if (err) {
+    throw err;
+  }
+
+},
+)}
+main();

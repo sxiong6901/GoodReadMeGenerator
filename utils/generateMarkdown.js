@@ -1,6 +1,7 @@
 function generateMarkdown(data) {
   return `
-# Project Title : ${data.title}
+
+  # Project Title : ${data.title}
 
 ## Project Description:
 ${data.desc}
@@ -23,7 +24,7 @@ ${data.install}
 ${data.usage}
 
 ## License
-${data.licenseName} - ${data.licenseUrl}
+${data.licenseName} - URL ${data.licenseUrl}
 
 ## Contributors
 ${data.contributors}
@@ -53,6 +54,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ## Author 
 ![GitHub profile pic](${data.image})
+
 `;
 }
 
