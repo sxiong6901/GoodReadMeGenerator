@@ -2,7 +2,8 @@
 const inquirer = require("inquirer");
 const axios = require("axios");
 const fs = require('fs');
-const path = require('path');
+const api = require('./utils/api.js')
+const generateMarkdown = require('./utils/generateMarkdown.js')
 
 async function main(){
     console.log(`starting`);
@@ -59,7 +60,7 @@ async function main(){
         },
         {
             type: "input",
-            message: "provide License url ",
+            message: "Provide License url. ",
             name: "licenseUrl"
         },
         {
@@ -74,12 +75,11 @@ async function main(){
         }
 ]);
 
+fs.writeFile('README.md', 'Good ReadMe Generator', function (err) {
+    if (err) throw err;
+    console.log('File is created successfully.');
+  });
 
-fs.writeFile("README.md", generateMarkdown, function(err) {
-  if (err) {
-    throw err;
-  }
 
-},
-)}
-main();
+}
+main()
