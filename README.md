@@ -5,7 +5,7 @@
   ## Table of Contents
   * [Title](#Title)
   * [Description](#Description)
-  * [Table of Contents](#Table of Contents)
+  * [TableofContents](#TableofContents)
   * [Installation](#Installation)
   * [Usage](#Usage)
   * [License](#license)
