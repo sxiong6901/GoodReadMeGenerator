@@ -81,7 +81,6 @@ function generateMd(answer) {
   ${answer.test}
   ## Questions
   If you have any questions, contact ${answer.username} on GitHub.`
-  
   }
 // fs.writeFile('README.md', generateMarkdown, function (err) {
 //     if (err) throw err;
