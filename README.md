@@ -20,6 +20,6 @@
   ## Contributors
   sxiong6901
   ## Test
-  <iframe src="https://drive.google.com/file/d/1qJtW4XR3mf-H-O_rIRNGZOsm7HGgycDL/preview" width="640" height="480"></iframe>
+  [![Watch the video](https://drive.google.com/file/d/1qJtW4XR3mf-H-O_rIRNGZOsm7HGgycDL/preview)
   ## Questions
   If you have any questions, contact sxiong6901 on GitHub.
