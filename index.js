@@ -61,7 +61,6 @@ function generateMd(answer) {
   ## Description:
   ${answer.desc}
   ## Table of Contents
-  * [Title](#Title)
   * [Description](#Description)
   * [Installation](#Installation)
   * [Usage](#Usage)
