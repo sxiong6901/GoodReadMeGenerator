@@ -76,7 +76,7 @@ function generateMd(answer) {
   ${answer.usage}
 
   ## License
-  ${answer.licenseName} - URL ${answer.licenseUrl}
+  ${answer.licenseName} - URL: ${answer.licenseUrl}
   
   ## Contributors
   https://github.com/+ ${answer.contributors}

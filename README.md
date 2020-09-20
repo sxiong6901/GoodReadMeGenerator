@@ -17,7 +17,7 @@
   ## Usage
   Steps required to install project and how to get the development environment running:The application itself can be invoked with node index.js.
   ## License
-  MIT License - URL https://github.com/sxiong6901/GoodReadMeGenerator/blob/master/LICENSE
+  MIT License - URL: https://github.com/sxiong6901/GoodReadMeGenerator/blob/master/LICENSE
   ## Contributors
   https://github.com/sxiong6901
   ## Test
