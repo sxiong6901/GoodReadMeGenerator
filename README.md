@@ -21,6 +21,6 @@
   ## Contributors
   https://github.com/sxiong6901
   ## Test
-  [![Watch the video](https://drive.google.com/file/d/1qJtW4XR3mf-H-O_rIRNGZOsm7HGgycDL/preview)]
+  [Watch the video](https://drive.google.com/file/d/1qJtW4XR3mf-H-O_rIRNGZOsm7HGgycDL/preview)
   ## Questions
   If you have any questions, contact sxiong6901 on GitHub.
