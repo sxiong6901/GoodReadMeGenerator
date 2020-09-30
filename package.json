@@ -10,6 +10,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Soua Xiong",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sxiong6901/GoodReadMeGenerator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sxiong6901/GoodReadMeGenerator/issues"
+  },
+  "homepage": "https://github.com/sxiong6901/GoodReadMeGenerator#readme"
 }
